@@ -33,7 +33,7 @@ function gradeQuiz(candidateAnswers) {
 
 if (candidateAnswer === correctAnswer){
   console.log("your answer is correct!")
-} else {
+} else if (candidateAnswer !== correctAnswer){
   console.log("Sorry, that is not the correct answer.")
 }
 
