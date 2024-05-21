@@ -24,9 +24,8 @@ candidateName = input.question("What is your name? ");
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (let i = 0; i < questions.length; i++) {
+    candidateAnswer = input.question(questions[i]);
     candidateAnswers.push(candidateAnswer);
-  candidateAnswer = input.question(question)
-
 }
 }
 
@@ -34,7 +33,7 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 for (let i = 0; i < questions.length; i++) {
-  if (candidateAnswer[i] === correctAnswer[i]){
+  if (candidateAnswers[i] === correctAnswers[i]){
   console.log(`That is correct!\nCorrect answer: ${correctAnswers[i]}.\nYour answer: ${candidateAnswers[i]}`);
 }   else {
     console.log(`Sorry, that is not the correct answer.\nCorrect answer: ${correctAnswers[i]}.\nYour answer: ${candidateAnswers[i]}`);
