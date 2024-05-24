@@ -32,24 +32,32 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for (let i = 0; i < questions.length; i++) {
-  if (candidateAnswers[i] === correctAnswers[i]){
-  console.log(`That is correct!\nCorrect answer: ${correctAnswers[i]}.\nYour answer: ${candidateAnswers[i]}`);
-}   else {
-    console.log(`Sorry, that is not the correct answer.\nCorrect answer: ${correctAnswers[i]}.\nYour answer: ${candidateAnswers[i]}`);
+  let gradeCapture = []
+    for (let i = 0; i < questions.length; i++) {
+  if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()){
+  console.log(`${questions[i]}\nThat is correct!\nCorrect answer: ${correctAnswers[i]} \nYour answer: ${candidateAnswers[i]}\n`);
+  gradeCapture.push("Y");
+  }   else {
+    console.log(`${questions[i]}\nSorry, that is not the correct answer.\nCorrect answer: ${correctAnswers[i]}.\nYour answer: ${candidateAnswers[i]}\n`);
 }
 }
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  ;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = ((gradeCapture.length)/(questions.length) * 100)
+  if (grade >= 80){
+  console.log(`-------------\nCongratulations ${candidateName}! You have passed the test.\nYou scored ${grade}%.`)
+  } else {
+    console.log(`-------------\nSorry ${candidateName}. You did not pass the test.\nYou scored ${grade}%.`)
+  }
   return grade;
+  
 }
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log(`Greetings ${candidateName}!`);
+   console.log(`Greetings ${candidateName}!\n~~~~~~~~~~~~~~`);
   askQuestion();
+  console.log(`\n~~~~~~~~~~~~~~~~~~~~~~~`)
   gradeQuiz(this.candidateAnswers);
 }
 
